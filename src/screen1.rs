@@ -1,0 +1,49 @@
+use macroquad::prelude::*;
+
+use crate::modules::label::Label;
+use crate::modules::text_button::TextButton;
+use crate::modules::grid::{self, draw_grid};
+pub async fn run() -> String {
+ let lbl_welcome = Label::new("Welcome to moving game", 150.0, 100.0, 30);
+  let lbl_direction = Label::new("Press A/D and W/S to move \n You get 60 seconds to complete the maze!", 150.0, 200.0, 30);
+
+ let btn_enter = TextButton::new(
+        150.0,
+        400.0,
+        200.0,
+        60.0,
+        "Play Game",
+        BLUE,
+        GREEN,
+        30
+    );
+     let btn_exit = TextButton::new(
+        400.0,
+        400.0,
+        200.0,
+        60.0,
+        "Exit Game",
+        BLUE,
+        GREEN,
+        30
+    );
+
+    loop {
+        clear_background(WHITE);
+        draw_grid(50.0, LIGHTGRAY);
+        if btn_enter.click() {
+            return "screen2".to_string();
+        }
+
+        if btn_exit.click() {
+            return "exit".to_string();
+        }
+
+        if is_key_pressed(KeyCode::Space) {
+            return "screen2".to_string();
+        }
+    lbl_welcome.draw();
+    lbl_direction.draw();
+        next_frame().await;
+    }
+}

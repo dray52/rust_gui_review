@@ -1,0 +1,88 @@
+//pub mod player;
+
+//use crate::modules::player::Player;
+
+
+
+pub struct Player {
+    struct StillImage,
+    move_speed: f32,
+
+
+}
+
+
+
+impl Player{
+impl StillImage,
+move_speed,
+
+
+
+
+fn move(&self){
+
+
+     // Direction to move in
+    let mut move_dir = vec2(0.0, 0.0);
+
+    // Keyboard input
+    if is_key_down(KeyCode::D) {
+        move_dir.x += 1.0;
+    }
+    if is_key_down(KeyCode::A) {
+        move_dir.x -= 1.0;
+    }
+    if is_key_down(KeyCode::S) {
+        move_dir.y += 1.0;
+    }
+    if is_key_down(KeyCode::W) {
+        move_dir.y -= 1.0;
+    }
+
+    // Normalize the movement to prevent faster diagonal movement
+    if move_dir.length() > 0.0 {
+        move_dir = move_dir.normalize();
+    }
+
+    // Apply movement based on frame time
+    let movement = move_dir * MOVE_SPEED * get_frame_time();
+
+    // Save old position in case of collision
+    let old_pos = amongus.pos();
+
+    // Move X first
+    if movement.x != 0.0 {
+      
+        amongus.set_x(amongus.get_x() + movement.x);
+          
+      
+    }
+
+    // Move Y next
+    if movement.y != 0.0 {
+        amongus.set_y(amongus.get_y() + movement.y);
+        
+        
+    }
+
+
+
+ 
+        
+}
+
+pub fn draw(&self) {
+        // Only draw if the label is visible
+        if !self.visible {
+            return;
+        }
+
+#[allow(unused)]
+ //change speed
+    pub fn set_speed(&mut self, move_speed: f32) -> &mut Self {
+        self.move_speed = move_speed;
+        self
+    }
+
+}
