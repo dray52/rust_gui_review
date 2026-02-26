@@ -120,4 +120,13 @@ pub fn draw(&self) {
      pub fn pos(&self) -> Vec2 {
         vec2(self.view.get_x(), self.view.get_y())
     }
+
+        pub fn check_collision_x(){
+
+    }
+
+
+    pub fn check_collision_y(){
+
+    }
 }
