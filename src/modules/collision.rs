@@ -64,6 +64,30 @@ impl Collidable for StillImage {
         self.get_angle()
     }
 }
+// sad attempt to add collision for player
+/* 
+use crate::modules::player::Player;
+impl Collidable for Player {
+    fn pos(&self) -> Vec2 {
+        self.pos()
+    }
+    
+    fn size(&self) -> Vec2 {
+        self.size()
+    }
+    
+    fn texture_size(&self) -> Vec2 {
+        self.texture_size()
+    }
+    
+    fn get_mask(&self) -> Option<Vec<u8>> {
+        self.get_mask()
+    }
+    
+    fn get_angle(&self) -> f32 {
+        self.get_angle()
+    }
+}*/
 /* 
 use crate::modules::animated_image::AnimatedImage;
 // Implement for AnimatedImage
