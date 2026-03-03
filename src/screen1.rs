@@ -30,7 +30,7 @@ pub async fn run() -> String {
 
     loop {
         clear_background(WHITE);
-        draw_grid(50.0, LIGHTGRAY);
+       
         if btn_enter.click() {
             return "screen2".to_string();
         }
