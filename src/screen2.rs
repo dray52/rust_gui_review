@@ -27,6 +27,7 @@ pub async fn run() -> String {
         400.0,   // y position
         true,   // Enable stretching
         1.0,    // Normal zoom (100%)
+        "horizontal".to_string()
     ).await;
 
     let maze = StillImage::new(
@@ -122,7 +123,7 @@ if amongus.get_x() < 40.0 && amongus.get_y() < 580.0 && amongus.get_y() > 537.0 
      if btn_exit.click() {
             return "screen1".to_string();
         }
-        wall.moveing(100.0);
+        wall.moveing(100.0, 50.0);
 if check_collision(wall.view_player(), amongus.view_player(), 1){
     amongus.set_y(old_pos.y);
     amongus.set_x(old_pos.x);

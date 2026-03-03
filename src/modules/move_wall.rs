@@ -25,13 +25,14 @@ impl MoveWall{
         x: f32, 
         y: f32,
         stretch_enabled: bool,
-        zoom_level: f32) -> MoveWall{
+        zoom_level: f32,
+        direction: String) -> MoveWall{
 
-        MoveWall {
+      MoveWall {
             view: StillImage::new(asset_path, width, height, x, y, stretch_enabled, zoom_level).await,
             move_speed: 200.0, // Default speed
             movement: Vec2::ZERO,
-            direction: "Horizontal".to_string(),
+            direction,
             
         }
         }
@@ -99,8 +100,8 @@ pub fn draw(&self) {
     }
    
  #[allow(unused)]
-    pub fn moveing(&mut self, width: f32) {
-        if self.direction == "Horizontal" {
+    pub fn moveing(&mut self, width: f32, hight: f32)   {
+        if self.direction == "horizontal" {
             self.movement.x = self.move_speed * get_frame_time();
             self.movement.y = 0.0;
             self.set_x(self.get_x()+self.movement.x);
@@ -108,9 +109,14 @@ pub fn draw(&self) {
                 self.move_speed = self.move_speed * -1.0;
                 
             }
-        } else {
+        } else  if self.direction == "vertical" {
             self.movement.y = self.move_speed * get_frame_time();
             self.movement.x = 0.0;
+             self.set_y(self.get_y()+self.movement.y);
+            if self.get_y() > screen_height()-hight|| self.get_y() < 0.0{
+                self.move_speed = self.move_speed * -1.0;
+                
+            }
         }
        
     }
