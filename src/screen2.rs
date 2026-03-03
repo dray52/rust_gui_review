@@ -1,11 +1,10 @@
-use core::time;
+
 
 use macroquad::prelude::*;
 use crate::modules::still_image::StillImage;
-use crate::modules::collision::{self, check_collision};
+use crate::modules::collision::{check_collision};
 use crate::modules::text_button::TextButton;
 use crate::modules::label::Label;
-use crate::modules::grid::draw_grid;
 use crate::modules::player::Player;
 use crate::modules::move_wall::MoveWall;
 pub async fn run() -> String {
@@ -20,7 +19,7 @@ pub async fn run() -> String {
         1.0,    // Normal zoom (100%)
     ).await;
 
-     let mut Wall = MoveWall::new(
+     let mut wall = MoveWall::new(
         "assets/wall.png",
         100.0,  // width
         50.0,  // height
@@ -109,8 +108,8 @@ if amongus.move_check_collision_x(&maze){
 if amongus.move_check_collision_y(&maze){
     amongus.set_y(old_pos.y);
 }
-if check_collision(amongus.view_player(), Wall.view_player(), 1){
-amongus.set_y(Wall.get_y()-50.0);
+if check_collision(amongus.view_player(), wall.view_player(), 1){
+amongus.set_y(wall.get_y()-50.0);
 if check_collision(amongus.view_player(), &maze, 1){
     amongus.set_y(amongus.get_y() + 10.0);
 }
@@ -123,8 +122,8 @@ if amongus.get_x() < 40.0 && amongus.get_y() < 580.0 && amongus.get_y() > 537.0 
      if btn_exit.click() {
             return "screen1".to_string();
         }
-        Wall.moveing(100.0);
-if check_collision(Wall.view_player(), amongus.view_player(), 1){
+        wall.moveing(100.0);
+if check_collision(wall.view_player(), amongus.view_player(), 1){
     amongus.set_y(old_pos.y);
     amongus.set_x(old_pos.x);
 }
@@ -145,7 +144,7 @@ if check_collision(amongus.view_player(), &door, 1){
         amongus.draw();
         lbl_time.draw();
         lbl_timer.draw();
-        Wall.draw();
+        wall.draw();
         key.draw();
         door.draw();
         next_frame().await;

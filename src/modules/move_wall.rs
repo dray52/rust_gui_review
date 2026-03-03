@@ -4,7 +4,7 @@
 
 use macroquad::prelude::*;
 use crate::modules::still_image::StillImage;
-use crate::modules::collision::check_collision;
+
 pub struct MoveWall {
     view: StillImage,
     move_speed: f32,

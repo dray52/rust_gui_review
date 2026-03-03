@@ -16,7 +16,6 @@ use crate::modules::grid::draw_grid;
 pub mod still_image;
 pub mod label;
 pub mod text_button;
-pub mod grid;
 pub mod collision;
 pub mod player;
 pub mod move_wall;

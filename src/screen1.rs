@@ -2,7 +2,7 @@ use macroquad::prelude::*;
 
 use crate::modules::label::Label;
 use crate::modules::text_button::TextButton;
-use crate::modules::grid::{self, draw_grid};
+
 pub async fn run() -> String {
  let lbl_welcome = Label::new("Welcome to moving game", 150.0, 100.0, 30);
   let lbl_direction = Label::new("Press A/D and W/S to move \n You get 60 seconds to complete the maze!", 150.0, 200.0, 30);
