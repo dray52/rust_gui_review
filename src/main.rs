@@ -12,7 +12,7 @@ use macroquad::prelude::*;
 /// Set up window settings before the app runs
 fn window_conf() -> Conf {
     Conf {
-        window_title: "rust_gui_review".to_string(),
+        window_title: "MAZE GAME".to_string(),
         window_width: 1024,
         window_height: 768,
         fullscreen: false,

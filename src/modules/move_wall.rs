@@ -1,7 +1,9 @@
-//pub mod move_wall;
+/*
 
-//use crate::modules::move_wall::MoveWall;
+pub mod move_wall;
 
+use crate::modules::move_wall::MoveWall;
+*/
 use macroquad::prelude::*;
 use crate::modules::still_image::StillImage;
 
