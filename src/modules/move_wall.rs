@@ -6,7 +6,7 @@ use crate::modules::move_wall::MoveWall;
 */
 use macroquad::prelude::*;
 use crate::modules::still_image::StillImage;
-
+use crate::modules::scale::use_virtual_resolution;
 pub struct MoveWall {
     view: StillImage,
     move_speed: f32,
@@ -102,12 +102,13 @@ pub fn draw(&self) {
     }
    
  #[allow(unused)]
-    pub fn moveing(&mut self, width: f32, hight: f32)   {
+    pub fn moveing(&mut self, width: f32, hight: f32, virtual_width: f32, virtual_height: f32)  {
+        use_virtual_resolution(1024.0, 768.0);
         if self.direction == "horizontal" {
             self.movement.x = self.move_speed * get_frame_time();
             self.movement.y = 0.0;
             self.set_x(self.get_x()+self.movement.x);
-            if self.get_x() > screen_width()-width|| self.get_x() < 0.0{
+            if self.get_x() > virtual_width-width|| self.get_x() < 0.0{
                 self.move_speed = self.move_speed * -1.0;
                 
             }
@@ -115,7 +116,7 @@ pub fn draw(&self) {
             self.movement.y = self.move_speed * get_frame_time();
             self.movement.x = 0.0;
              self.set_y(self.get_y()+self.movement.y);
-            if self.get_y() > screen_height()-hight|| self.get_y() < 0.0{
+            if self.get_y() > virtual_height-hight|| self.get_y() < 0.0{
                 self.move_speed = self.move_speed * -1.0;
                 
             }

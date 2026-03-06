@@ -7,7 +7,10 @@ use crate::modules::text_button::TextButton;
 use crate::modules::label::Label;
 use crate::modules::player::Player;
 use crate::modules::move_wall::MoveWall;
+use crate::modules::scale::use_virtual_resolution;
 pub async fn run() -> String {
+    const VIRTUAL_WIDTH: f32 = 1024.0;
+    const VIRTUAL_HEIGHT: f32 = 768.0;
     
     let mut amongus = Player::new(
         "assets/amongus.png",
@@ -79,6 +82,7 @@ pub async fn run() -> String {
       let start_time = get_time();
 
     loop {
+        use_virtual_resolution(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
         #[allow(unused)]
         let mut timer = get_time() - start_time;
 
@@ -123,7 +127,7 @@ if amongus.get_x() < 40.0 && amongus.get_y() < 580.0 && amongus.get_y() > 537.0 
      if btn_exit.click() {
             return "screen1".to_string();
         }
-        wall.moveing(100.0, 50.0);
+        wall.moveing(100.0, 50.0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
 if check_collision(wall.view_player(), amongus.view_player(), 1){
     amongus.set_y(old_pos.y);
     amongus.set_x(old_pos.x);
