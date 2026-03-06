@@ -103,7 +103,7 @@ pub fn draw(&self) {
    
  #[allow(unused)]
     pub fn moveing(&mut self, width: f32, hight: f32, virtual_width: f32, virtual_height: f32)  {
-        use_virtual_resolution(1024.0, 768.0);
+        
         if self.direction == "horizontal" {
             self.movement.x = self.move_speed * get_frame_time();
             self.movement.y = 0.0;
