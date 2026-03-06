@@ -19,3 +19,4 @@ pub mod text_button;
 pub mod collision;
 pub mod player;
 pub mod move_wall;
+pub mod scale;

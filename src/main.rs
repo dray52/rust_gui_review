@@ -8,7 +8,7 @@ mod modules;
 mod screen1;
 mod screen2;
 use macroquad::prelude::*;
-
+use crate::modules::scale::use_virtual_resolution;
 /// Set up window settings before the app runs
 fn window_conf() -> Conf {
     Conf {
@@ -29,6 +29,8 @@ async fn main() {
     let mut last_switch = get_time() - 0.02;
 
     loop {
+         // Set the virtual resolution to 1024x768
+        use_virtual_resolution(1024.0, 768.0);
         if get_time() - last_switch > 0.01 {
             current_screen = match current_screen.as_str() {
                 "screen1" => screen1::run().await,
